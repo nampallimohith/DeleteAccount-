@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account - RentMate</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f6f8;
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            width: 420px;
+            text-align: center;
+        }
+        h2 {
+            color: #2c3e50;
+        }
+        input, textarea {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #c0392b;
+        }
+        .note {
+            font-size: 13px;
+            color: #777;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Delete Your RentMate Account</h2>
+        <p>We're sorry to see you leave. Please confirm your details below to request account deletion.</p>
+
+        <form id="deleteForm" onsubmit="return handleDelete(event)">
+            <input type="text" id="name" placeholder="Enter your full name" required>
+            <input type="email" id="email" placeholder="Enter your registered email" required>
+            <input type="password" id="password" placeholder="Enter your password" required>
+            <textarea id="reason" placeholder="Reason for leaving (Optional)"></textarea>
+            <button type="submit">Delete My Account</button>
+        </form>
+
+        <p class="note">
+            ⚠️ Note: Deleting your account will permanently remove your profile, 
+            rental records, payment history, and roommate connections from RentMate.
+            This action cannot be undone.
+        </p>
+    </div>
+
+    <script>
+        function handleDelete(event) {
+            event.preventDefault();
+
+            document.body.innerHTML = `
+                <div style="text-align:center; margin-top:20%; font-family:Arial, sans-serif;">
+                    <h1>Your account deletion request has been received.</h1>
+                    <p>Our team will process your request within 24-48 hours.</p>
+                    <p>If you have active rental agreements or pending payments, 
+                    you may be contacted for confirmation.</p>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
